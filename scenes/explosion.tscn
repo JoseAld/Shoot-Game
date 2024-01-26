@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://hmvl3cgnfux6"]
+
+[ext_resource type="Script" path="res://scenes/Explosion.gd" id="1_6vj36"]
+
+[sub_resource type="Curve" id="Curve_l357p"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_l5y23"]
+offsets = PackedFloat32Array(0, 0.0105263, 0.894737, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0.00784314, 0, 1, 1, 0.841677, 0.840426, 1, 1, 1, 1, 1)
+
+[node name="Explosion" type="CPUParticles2D"]
+emitting = false
+amount = 20
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 5.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 90.0
+initial_velocity_max = 110.0
+scale_amount_min = 14.0
+scale_amount_max = 16.0
+scale_amount_curve = SubResource("Curve_l357p")
+color_ramp = SubResource("Gradient_l5y23")
+script = ExtResource("1_6vj36")

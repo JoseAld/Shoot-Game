@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbq70k8cosmlx"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_7qeeb"]
+[ext_resource type="PackedScene" uid="uid://bhmlhbda06axg" path="res://scenes/world.tscn" id="1_trdgb"]
+[ext_resource type="PackedScene" uid="uid://ce30ac267oe26" path="res://scenes/player.tscn" id="2_ksbxh"]
+[ext_resource type="PackedScene" uid="uid://cte86tk7orqim" path="res://scenes/mob_spawner.tscn" id="3_alpmq"]
+[ext_resource type="Script" path="res://scenes/BulletManager.gd" id="4_14ces"]
+[ext_resource type="PackedScene" uid="uid://dkf2o78q7x88b" path="res://scenes/bullet.tscn" id="5_b2yas"]
+[ext_resource type="PackedScene" uid="uid://d2asyny7uop04" path="res://scenes/hud.tscn" id="7_t1fwc"]
+[ext_resource type="PackedScene" uid="uid://b5lykhdr6oc" path="res://scenes/game_over.tscn" id="8_160t4"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_7qeeb")
+
+[node name="World" parent="." instance=ExtResource("1_trdgb")]
+
+[node name="Player" parent="." instance=ExtResource("2_ksbxh")]
+position = Vector2(400, 374)
+
+[node name="BulletManager" type="Node2D" parent="."]
+script = ExtResource("4_14ces")
+bullet_scene = ExtResource("5_b2yas")
+
+[node name="MobSpawner" parent="." instance=ExtResource("3_alpmq")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2(392, 413)
+zoom = Vector2(0.75, 0.75)
+
+[node name="WaveOverTimer" type="Timer" parent="."]
+process_mode = 2
+one_shot = true
+
+[node name="Hud" parent="." instance=ExtResource("7_t1fwc")]
+
+[node name="GameOver" parent="." instance=ExtResource("8_160t4")]
+process_mode = 2
+
+[connection signal="shoot" from="Player" to="BulletManager" method="_on_player_shoot"]
+[connection signal="hit_p" from="MobSpawner" to="." method="_on_mob_spawner_hit_p"]
+[connection signal="timeout" from="WaveOverTimer" to="." method="_on_wave_over_timer_timeout"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c31mtdlmbi40b"]
+
+[ext_resource type="Script" path="res://scenes/item.gd" id="1_q4g3c"]
+[ext_resource type="Texture2D" uid="uid://cwodfdjir68jt" path="res://assets/items/health_box.png" id="1_rlsit"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xuft"]
+size = Vector2(34, 34)
+
+[node name="Item" type="Area2D"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_q4g3c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rlsit")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1xuft")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

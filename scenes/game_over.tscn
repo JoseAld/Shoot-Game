@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5lykhdr6oc"]
+
+[ext_resource type="FontFile" uid="uid://cb6nkqm4ly04w" path="res://FONTS/04B_30__.TTF" id="1_ybofp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8a12"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j38vt"]
+bg_color = Color(0.772549, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7mdx"]
+bg_color = Color(1, 0.27451, 0.211765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yo7ew"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="GameOver" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 184.0
+offset_top = 280.0
+offset_right = 584.0
+offset_bottom = 480.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_b8a12")
+
+[node name="GameoverLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -88.0
+offset_right = 96.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ybofp")
+theme_override_font_sizes/font_size = 30
+text = "FIM DE JOGO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaveSurvivedLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.0
+offset_top = -48.0
+offset_right = 222.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_ybofp")
+theme_override_font_sizes/font_size = 23
+text = "WAVES SURVIVED: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 32.0
+offset_right = 125.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_ybofp")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_j38vt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_n7mdx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yo7ew")
+text = "PLAY AGAIN"

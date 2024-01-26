@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://coa3pialr0gna"]
+
+[ext_resource type="AudioStream" uid="uid://daf80fj828y3x" path="res://tomp3.cc - Kirbys Return to Dream Land Title Theme 8 Bit Remix.mp3" id="1_adm3n"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_adm3n")
+volume_db = -11.277
+autoplay = true
